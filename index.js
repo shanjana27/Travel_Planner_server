@@ -11,7 +11,10 @@ connectDb();
 const app = express();
 
 // ✅ VERY IMPORTANT — put this BEFORE routes
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:5000', 'http://localhost:3000', 'https://travel-planner-client-chi.vercel.app'],
+  credentials: true
+}));
 
 
 app.use(express.json());
