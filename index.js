@@ -12,7 +12,7 @@ const app = express();
 
 // ✅ VERY IMPORTANT — put this BEFORE routes
 app.use(cors({
-  origin: ['http://localhost:5000', 'http://localhost:3000', 'https://travel-planner-client-chi.vercel.app'],
+  origin: ['http://localhost:5000', 'http://localhost:3000', 'https://travel-planner-client-chi.vercel.app','https://travel-planner-server-jkeo.onrender.com'],
   credentials: true
 }));
 
@@ -23,6 +23,9 @@ app.use("/api/trips", tripRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/activities", activityRoutes); 
 
-app.listen(process.env.PORT, () => {
-  console.log(`🚀 Server running on port ${process.env.PORT}`);
+const PORT = process.env.PORT || 10000;
+
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on port ${PORT}`);
 });
+
